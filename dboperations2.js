@@ -347,7 +347,7 @@ async function getQuestionPaper(PaperCode){
         
             .input("input_param",sql.Int,PaperCode )
             .query("EXEC GetQuestionPaper @input_param");
-            .query("EXEC GetQuestionPaper @input_param");
+            // .query("EXEC GetQuestionPaper @input_param");
         return questionpaper.recordsets;
     }
     catch(error){

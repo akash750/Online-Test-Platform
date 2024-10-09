@@ -2,15 +2,14 @@ const config =
 {
     user: 'sa',
     // password:'',
-    password: '',
-    // server:'HP-VIVEK',
-    server:'',
-    database:'trial1',
+    password: 'root',
+    server:'AKASH',
+    database:'OnlineTestPlatform',
     options:
     {
         trustedconnection : true,
         enableArithAbort : true,
-        instancename : 'MSSQLSERVER',
+        instancename : 'SQLEXPRESS',
 
     },
     

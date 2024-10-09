@@ -25,15 +25,17 @@ var cors = require('cors');
 var app = express();
 var router = express.Router();
 
-app.use(express.json())
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({origin: true, credentials: true}));
+
 app.use('/api',router);
 app.use("/", userRouter);
 
+
+
 router.use((request, response, next)=> { //middleware(used for authentication)
-    // console.log("middleware");
+    // console.log("middleware");s
     next();
 })
 
@@ -174,8 +176,6 @@ router.route('/teacher/courses').post((request,response)=>
 )
 
 router.route('/questionbank/:id').get((request,response)=>{ 
-router.route('/questionbank/:id').get((request,response)=>{ 
-    
     Db.getQuestions_QB(request.params.id).then(result =>{
         response.json(result);
     })
@@ -433,6 +433,6 @@ router.route('/altercourse').post((request,response)=>
 
 
 
-var port = process.env.PORT||8090;
+var port = process.env.PORT||8080;
 app.listen(port);
 console.log('API is running at ' + port);
